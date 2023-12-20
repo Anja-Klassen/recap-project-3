@@ -1,1 +1,45 @@
-export function CharacterCard() {}
+export function CharacterCard(characterData) {
+    const cardContainer = document.createElement("ul");
+    cardContainer.classList.add("card-container");
+    cardContainer.setAttribute.("data-js", "card-container");
+    document.body.main.append(ul);
+
+    const card = document.createElement("li");
+    card.classList.add("card"); 
+    document.body.main.ul.append(li);
+
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("card__image-container"); 
+    document.body.main.ul.li.append(div);
+
+    const image = document.createElement("img");
+    image.classList.add("card__image"); 
+    image.setAttribute("src", `${character.results[0].img}`);
+    image.setAttribute("alt", "Rick Sanchez")
+    document.body.main.ul.li.div.append(img);
+
+
+
+
+
+//   const card = document.createElement("article"); // Create a new article Element
+//   card.classList.add("card"); // Add the class 'card'
+
+//   // Fill the article element with content.
+//   const heading = document.createElement("h2");
+//   heading.textContent = characterData.name;
+
+//   card.append(heading);
+
+//   const eyeColor = document.createElement("p");
+//   eyeColor.textContent = `Eye color: ${characterData.eye_color}`;
+
+//   card.append(eyeColor);
+
+//   const birthYear = document.createElement("p");
+//   birthYear.textContent = `Birth Year: ${characterData.birth_year}`;
+
+//   card.append(birthYear);
+
+//   return card;
+// }
