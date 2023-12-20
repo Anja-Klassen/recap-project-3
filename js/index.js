@@ -1,4 +1,8 @@
 console.clear();
+
+import { Card } from "../components/CharacterCard/CharacterCard.js";
+import { renderElement } from "./utils.js";
+
 const vscode_livepreview_injected_script = document.getElementById(
   "vscode_livepreview_injected_script"
 );
@@ -20,9 +24,6 @@ const searchQuery = "";
 
 // followup
 
-import { CharacterCard } from "../components/CharacterCard/CharacterCard.js";
-import { renderElement } from "./utils.js";
-
 const url = "https://rickandmortyapi.com/api/character";
 
 async function fetchUrl() {
@@ -34,7 +35,7 @@ async function fetchUrl() {
 
   const data = await response.json();
 
-  console.log("data1", data);
+  console.log("data", data);
 
   return data;
 }
@@ -42,12 +43,12 @@ async function fetchUrl() {
 function fetchDataAndRender() {
   fetchUrl(url)
     .then((data) => {
-      console.log("data2:", data);
+      console.log("data:", data);
 
       data.results.forEach((element) => {
-        console.log("element:", element);
+        console.log(element);
 
-        renderElement(CharacterCard(element));
+        renderElement(Card(element));
       });
     })
 
