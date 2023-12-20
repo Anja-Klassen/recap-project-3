@@ -5,7 +5,7 @@ export function Card(characterData) {
   card.setAttribute("data-js", "card-container");
   // card.textContent = "test";
 
-  // Fill the article element with content.
+  // Elements
 
   const cardLi = document.createElement("li");
   cardLi.classList.add("card");
