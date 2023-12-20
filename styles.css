@@ -16,7 +16,6 @@
   --color-granite: #252629;
   --color-water-10: #f3f5f9;
   --color-foam: #ffffff;
-  
 }
 
 body {
@@ -79,6 +78,6 @@ main {
 }
 
 .header {
-  display: flex
+  display: flex;
   height: 10px;
 }

@@ -1,44 +1,41 @@
 console.clear();
 export function CharacterCard(characterData) {
-  const cardContainer = document.createElement("ul");
-  cardContainer.classList.add("card-container");
-  cardContainer.setAttribute("data-js", "card-container");
-  document.body.main.append(ul);
-  cardContainer.textContent = "test";
+  const card = document.createElement("ul"); // Create a new article Element
+  card.classList.add("card-container"); // Add the class 'card'
+  heading.textContent = characterData.name;
 
-  const card = document.createElement("li");
-  card.classList.add("card");
-  document.body.main.ul.append(li);
+  card.append(heading);
 
-  const imageContainer = document.createElement("div");
-  imageContainer.classList.add("card__image-container");
-  document.body.main.ul.li.append(div);
+  const eyeColor = document.createElement("p");
+  eyeColor.textContent = `Eye color: ${characterData.eye_color}`;
 
-  const image = document.createElement("img");
-  image.classList.add("card__image");
-  image.setAttribute("src", `${characterData.results.image}`);
-  image.setAttribute("alt", "Rick Sanchez");
-  document.body.main.ul.li.div.append(img);
+  card.append(eyeColor);
+
+  const birthYear = document.createElement("p");
+  birthYear.textContent = `Birth Year: ${characterData.birth_year}`;
+
+  card.append(birthYear);
+
+  return card;
 }
 
-//   const card = document.createElement("article"); // Create a new article Element
-//   card.classList.add("card"); // Add the class 'card'
+//   const cardContainer = document.createElement("ul");
+//   cardContainer.classList.add("card-container");
+//   cardContainer.setAttribute("data-js", "card-container");
+//   document.body.main.append(ul);
+//   cardContainer.textContent = "test";
 
-//   // Fill the article element with content.
-//   const heading = document.createElement("h2");
-//   heading.textContent = characterData.name;
+//   const card = document.createElement("li");
+//   card.classList.add("card");
+//   document.body.main.ul.append(li);
 
-//   card.append(heading);
+//   const imageContainer = document.createElement("div");
+//   imageContainer.classList.add("card__image-container");
+//   document.body.main.ul.li.append(div);
 
-//   const eyeColor = document.createElement("p");
-//   eyeColor.textContent = `Eye color: ${characterData.eye_color}`;
-
-//   card.append(eyeColor);
-
-//   const birthYear = document.createElement("p");
-//   birthYear.textContent = `Birth Year: ${characterData.birth_year}`;
-
-//   card.append(birthYear);
-
-//   return card;
+//   const image = document.createElement("img");
+//   image.classList.add("card__image");
+//   image.setAttribute("src", `${characterData.results.image}`);
+//   image.setAttribute("alt", "Rick Sanchez");
+//   document.body.main.ul.li.div.append(img);
 // }
