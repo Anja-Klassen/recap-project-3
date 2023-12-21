@@ -1,7 +1,6 @@
 console.clear();
 
-import { Card } from "../components/CharacterCard/CharacterCard.js";
-import { renderElement } from "./utils.js";
+import { CharacterCard } from "../components/CharacterCard/CharacterCard.js";
 
 const vscode_livepreview_injected_script = document.getElementById(
   "vscode_livepreview_injected_script"
@@ -18,43 +17,80 @@ const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
 
 // States
-const maxPage = 1;
-const page = 1;
+const maxPage = 42;
+const minPage = 0;
+let page = 1;
 const searchQuery = "";
+
+const url = "https://rickandmortyapi.com/api/character?page=`${pageIndex}`";
+
+// Eventlistener
+
+nextButton.addEventListener("click", () => {
+  ++page;
+  fetchDataAndRender();
+});
+
+prevButton.addEventListener("click", () => {
+  let pageIndex = page--;
+  console.log(pageIndex);
+  let urlnext =
+    "https://rickandmortyapi.com/api/character?page=" + `${pageIndex}`;
+  fetchUrl(urlnext);
+  console.log(urlnext);
+});
 
 // followup
 
-const url = "https://rickandmortyapi.com/api/character";
+// async function fetchUrl() {
+//   console.log("test1");
 
-async function fetchUrl() {
-  console.log("test");
+//   const response = await fetch(url);
 
-  const response = await fetch(url);
+//   console.log("response2", response);
 
-  console.log("response", response);
+//   const data = await response.json();
+
+//   console.log("data3", data);
+
+//   return data;
+// }
+
+async function fetchDataAndRender() {
+  cardContainer.innerHTML = "";
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/character?page=${page}`
+  );
 
   const data = await response.json();
+  console.log("data3:", data);
 
-  console.log("data", data);
+  data.results.forEach((element) => {
+    console.log(element);
+    const card = CharacterCard(
+      element.name,
+      element.species,
+      element.status,
+      element.image,
+      element.episode.length
+    );
+    cardContainer.append(card);
+  });
 
-  return data;
-}
+  //   fetchUrl(url)
+  //     .then((data) => {
+  //       console.log("data:", data);
 
-function fetchDataAndRender() {
-  fetchUrl(url)
-    .then((data) => {
-      console.log("data:", data);
+  //       data.results.forEach((element) => {
+  //         console.log(element);
 
-      data.results.forEach((element) => {
-        console.log(element);
+  //         renderElement(Card(element));
+  //       });
+  //     })
 
-        renderElement(Card(element));
-      });
-    })
-
-    .catch((error) => {
-      console.error("Fehler:", error);
-    });
+  //     .catch((error) => {
+  //       console.error("Fehler:", error);
+  //     });
 }
 
 fetchDataAndRender();
