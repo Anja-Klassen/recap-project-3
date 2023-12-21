@@ -1,3 +1,12 @@
+console.clear();
+
+import { Card } from "../components/CharacterCard/CharacterCard.js";
+import { renderElement } from "./utils.js";
+
+const vscode_livepreview_injected_script = document.getElementById(
+  "vscode_livepreview_injected_script"
+);
+
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
@@ -15,10 +24,7 @@ const searchQuery = "";
 
 // followup
 
-import { CharacterCard } from "../components/CharacterCard/CharacterCard.js";
-import { renderElement } from "./js/utils.js";
-
-const url = "https://rickandmortyapi.com/api";
+const url = "https://rickandmortyapi.com/api/character";
 
 async function fetchUrl() {
   console.log("test");
